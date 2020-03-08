@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TachesController!{% endblock %}
+
+{% block body %}
+
+    <nav class="navbar navbar-light bg-light">
+        <a href="{{ path('accueil') }}"><span class="navbar-brand mb-0 h1">Navbar</span></a>
+        {% if app.user %}
+            <h1>Hello {{ app.user.prenom }}! </h1>
+            <a href="{{ path('app_logout') }}">Logout</a>
+
+        {% else %}
+
+            <a href="{{ path('app_login') }}" >Login </a>
+        {% endif %}
+
+
+    </nav>
+
+<div class="containertaches">
+
+    <div class="taches">
+        {%  if taches is not empty %}
+
+            {% for tache in taches %}
+
+               <a href="{{ path('updateTaches',{'id':tache.id}) }}">{{ tache.tache }}</a>
+
+
+                    {% if not tache.etat %}
+
+                        <input type="checkbox" id="horns" name="horns">
+
+                    {% else %}
+
+                        <input type="checkbox" id="scales" name="scales"
+                               checked>
+
+                    {% endif %}
+
+
+
+            {% endfor %}
+
+        {% else %}
+            <p>Vous n'avez pas encore de taches</p>
+
+        {% endif %}
+    </div>
+
+
+<div class="formulaire">
+    <div class="container mt-5">
+        {{ form_start(tachesForm) }}
+        {{form_row(tachesForm.tache)}}
+        {{ form_widget(tachesForm) }}
+        {# {{ form_rest(form) }} #}
+        <button type="submit">Envoyer</button>
+        {{ form_end(tachesForm) }}
+    </div>
+</div>
+
+
+</div>
+{% endblock %}

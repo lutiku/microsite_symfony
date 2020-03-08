@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <style>
+                .contnairform{ width: 40%; height: 600px; margin: 5% auto;}
+                .card{height: 100%; margin-bottom: 2%;}
+                .containerusers{display: flex; flex-wrap: wrap; justify-content: space-around; margin: 5% auto;}
+                .formlogin{width: 40%; margin: 8% auto}
+                .btn.btn-lg.btn-primary{margin-top: 2%;}
+                .card-text{font-size: 12px;}
+                .containertaches{width: 80%; height: 500px; background-color: grey; display: flex; margin: 5% auto; box-shadow: 10px 5px 5px grey;}
+                .taches, .formulaire{ width: 50%}
+                .taches{display: flex; flex-wrap: wrap; background-color: whitesmoke; }
+                .formulaire{background-color: darkgray}
+                .h1taches{ margin: auto;  display: flex; justify-content: center; margin:20% auto;}
+
+            </style>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+
+        {% endblock %}
+
+
+
+        {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        {% endblock %}
+    </body>
+</html>

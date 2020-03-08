@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <div class="container mt-5">
+        <div class="container mt-5">
+            {{ form_start(formUpdate) }}
+            {{ form_row(formUpdate.tache) }}
+            {{ form_row(formUpdate.slug) }}
+            {{ form_row(formUpdate.etat) }}
+
+            <select name="tacheId">
+                {% for tache in taches %}
+                    <option value="{{ tache.id }}">{{ tache.tache }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Envoyer</button>
+
+            {{ form_end(formUpdate) }}
+        </div>
+    </div>
+
+{% endblock %}

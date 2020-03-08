@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <nav class="navbar navbar-light bg-light">
+        <a href="{{ path('accueil') }}"><span class="navbar-brand mb-0 h1">Navbar</span></a>
+        {% if app.user %}
+            <a href="{{ path('app_logout') }}">Logout</a>
+        {% else %}
+
+            <a href="{{ path('app_login') }}" >Login </a>
+        {% endif %}
+
+
+    </nav>
+
+    <div class="contnairform">
+
+        <div class="card">
+            <h5 class="card-header info-color white-text text-center py-4">
+                <strong>Sign in</strong>
+            </h5>
+            <div class="card-body px-lg-5 pt-0">
+
+
+                {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.prenom) }}
+                {{ form_row(registrationForm.nom) }}
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.plainPassword) }}
+                {{ form_row(registrationForm.date) }}
+                {{ form_row(registrationForm.agreeTerms) }}
+
+                <button class="btn">Register</button>
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}

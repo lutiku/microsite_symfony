@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserFile{% endblock %}
+
+{% block body %}
+
+
+
+{% for user in  users %}
+   <h1>{{ user.prenom }}</h1>
+
+    {% endfor %}
+
+
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <!-- As a heading -->
+    <nav class="navbar navbar-light bg-light">
+        <a href="{{ path('accueil') }}"><span class="navbar-brand mb-0 h1">Navbar</span></a>
+        {% if app.user %}
+            <h1>Hello {{ app.user.prenom }}! </h1>
+            <a href="{{ path('taches') }}">Tâches</a>
+            <a href="{{ path('app_logout') }}">Logout</a>
+
+        {% else %}
+
+            <a href="{{ path('app_login') }}" >Login </a>
+        {% endif %}
+
+
+    </nav>
+
+<div class="containerusers">
+    {%  if users is not empty %}
+        {% for user in users %}
+
+
+
+
+            <div class="card" style="width:400px">
+                <img class="card-img-top" src="" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">{{ user.prenom }} {{ user.nom }}</h4>
+                    <p class="card-text"><i> Nous a rejoins le {{user.date|date('d/m/Y')}}</i></p>
+                    <a href="{{ path('userFile', {'id':user.id}) }}" class="btn btn-primary">See Profile</a>
+                </div>
+            </div>
+
+        {% endfor %}
+
+        {% for tache in taches %}
+
+        {% endfor %}
+
+    {% else %}
+        <p>Il n'y a pas encore d'utilisateur<p></p>
+
+    {% endif %}
+</div>
+
+
+{% endblock %}
